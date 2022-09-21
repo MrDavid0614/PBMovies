@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import { Button, FlatList, Text, View } from "react-native";
+import React from "react";
+import { FlatList, Text, View } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { Picker } from "@react-native-picker/picker";
 import { globalStyles } from "../common/styles";
 import { MovieItem } from "./MovieItem";
 import { Movie } from "../common/types/Movie";
