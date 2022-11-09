@@ -1,17 +1,9 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  Button,
-  Modal,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, Button } from "react-native";
 import { Picker } from "@react-native-picker/picker";
-import { globalStyles } from "../common/styles";
-import { GetNowPlayingMoviesDTO } from "../common/types";
-import { FiltersModal } from "./FiltersModal";
+import { globalStyles } from "../../common/styles";
+import { GetNowPlayingMoviesDTO } from "../../common/types";
+import { FiltersModal } from "../FiltersModal";
 
 type MoviesSectionHeaderProps = {
   sectionTitle: string;
@@ -23,6 +15,14 @@ type MoviesSectionHeaderProps = {
   >;
 };
 
+const dropDownOptions = ["Rating", "Name", "Release Year"];
+
+const SortOptionsValues: Record<string, GetNowPlayingMoviesDTO["sortBy"]> = {
+  Rating: "popularity.desc",
+  Name: "original_title.asc",
+  "Release Year": "release_date.desc",
+};
+
 export const MoviesSectionHeader = ({
   sectionTitle,
   haveFilter = false,
@@ -31,6 +31,7 @@ export const MoviesSectionHeader = ({
   handleOnApplyFilters,
 }: MoviesSectionHeaderProps) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+
   return (
     <View style={globalStyles.titleSection}>
       <Text style={globalStyles.title}>{sectionTitle}</Text>
@@ -40,9 +41,9 @@ export const MoviesSectionHeader = ({
         mode="dropdown"
         style={{ width: 200 }}
       >
-        <Picker.Item label="Rating" value="popularity.desc" />
-        <Picker.Item label="Name" value="original_title.asc" />
-        <Picker.Item label="Release Year" value="release_date.desc" />
+        {dropDownOptions.map((option) => (
+          <Picker.Item label={option} value={SortOptionsValues[option]} />
+        ))}
       </Picker>
       {haveFilter && (
         <>

@@ -1,15 +1,14 @@
 import React from "react";
-import { FlatList, Text, View } from "react-native";
+import { View, ActivityIndicator, FlatList, StyleSheet } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { globalStyles } from "../common/styles";
-import { MovieItem } from "./MovieItem";
-import { Movie } from "../common/types/Movie";
-import { RootStackParams } from "../navigation/types/root-stack-params";
-import { EmptyList } from "./EmptyList";
-import { Spinner } from "./Spinner";
-import { GetNowPlayingMoviesDTO } from "../common/types";
-import { OnSortByChangeType, useSort } from "../hooks/useSort";
-import { MoviesSectionHeader } from "./MoviesSectionHeader";
+import { globalStyles } from "../../common/styles";
+import { MovieItem } from "../MovieItem";
+import { Movie } from "../../common/types/Movie";
+import { RootStackParams } from "../../navigation/types/root-stack-params";
+import { EmptyList } from "../EmptyList";
+import { GetNowPlayingMoviesDTO } from "../../common/types";
+import { OnSortByChangeType, useSort } from "../../hooks/useSort";
+import { MoviesSectionHeader } from "../MoviesSectionHeader";
 
 type MoviesSectionProps = {
   sectionTitle: string;
@@ -57,8 +56,18 @@ export const MoviesSection = ({
           ListEmptyComponent={EmptyList}
         />
       ) : (
-        <Spinner />
+        <View style={styles.spinnerContainer}>
+          <ActivityIndicator animating size="large" />
+        </View>
       )}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  spinnerContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});

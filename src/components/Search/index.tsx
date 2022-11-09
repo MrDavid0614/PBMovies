@@ -6,8 +6,8 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { globalStyles } from "../common/styles";
-import { SearchMovieDTO } from "../common/types";
+import { globalStyles } from "../../common/styles";
+import { SearchMovieDTO } from "../../common/types";
 
 type SearchProps = {
   onSearch: ({ title }: SearchMovieDTO) => void;

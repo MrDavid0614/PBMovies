@@ -10,10 +10,10 @@ import {
   TextStyle,
   ViewStyle,
 } from "react-native";
-import { TMDB_IMAGES_BASE_URL } from "../common/constants";
-import { Movie } from "../common/types/Movie";
-import { useFavoritesMoviesContext } from "../context/FavoriteMoviesContext";
-import { Star } from "./Star";
+import { TMDB_IMAGES_BASE_URL } from "../../common/constants";
+import { Movie } from "../../common/types/Movie";
+import { useFavoritesMoviesContext } from "../../context/FavoriteMoviesContext";
+import { Star } from "../Star";
 
 type MovieItemProps = {
   movie: Movie;

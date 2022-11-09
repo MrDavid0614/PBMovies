@@ -4,7 +4,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { RootTabsParams } from "./types/root-tabs-params";
 import { MoviesScreen } from "../screens/MoviesScreen";
 import { FavoritesScreen } from "../screens/FavoritesScreen";
-import { Star } from "../components/Star";
 
 const movieIcon = require("../../assets/movie.png");
 const starIcon = require("../../assets/star.png");

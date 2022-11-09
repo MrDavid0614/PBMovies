@@ -11,10 +11,10 @@ import {
   View,
 } from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-import { globalStyles } from "../common/styles";
-import { GetNowPlayingMoviesDTO, MovieCategory } from "../common/types";
-import { useCategories } from "../hooks/useCategories";
-import { useFilter } from "../hooks/useFilter";
+import { globalStyles } from "../../common/styles";
+import { GetNowPlayingMoviesDTO, MovieCategory } from "../../common/types";
+import { useCategories } from "../../hooks/useCategories";
+import { useFilter } from "../../hooks/useFilter";
 
 type CustomModalProps = {
   isVisible: boolean;
