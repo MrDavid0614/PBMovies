@@ -13,9 +13,7 @@ import {
 const movieDB = axios.create({
   baseURL: TMDB_API_BASE_URL,
   params: {
-    api_key: Constants.manifest?.extra
-      ? Constants.manifest.extra.tmdbApiKey
-      : "",
+    api_key: process.env.REACT_APP_TMDB_APIKEY || "",
   },
 });
 
